@@ -25,6 +25,14 @@ Route::get('/doctors', function () {
     return view('doctors');
 });
 
+Route::get('/fotok', function () {
+    return view('fotok');
+});
+Route::get('/appointment', function () {
+    return view('appointment');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profil', [App\Http\Controllers\UserController::class, 'index'])->name('user');

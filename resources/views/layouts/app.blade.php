@@ -94,14 +94,14 @@ body {
 </style>
 </head>
 <body>
-  <div class="container h-90" style="background-color: white">
-    <div class="row d-flex justify-content-center align-items-center h-90">
-    <div class="topnav" id="myTopnav">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="topnav" id="myTopnav" style="background-color: white">
     @if (Route::has('login'))
-               <a href="home" class="active">Kezdőlap</a>
+              <a href="home" class="active">Kezdőlap</a>
               <a href="#">Kapcsolatok</a>
                  @auth
-                 <a href="#">Profil</a>
+                 <a href="profil">Saját oldal</a>
                  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                  <i class="fa fa-bars"></i>
                  </a> 
@@ -116,13 +116,14 @@ body {
                  @else
                     <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Bejelentkezés</a>
 
-                  @if (Route::has('register'))
+                   @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Regisztráció</a>
-                        @endif
+                  @endif
                     </div>
-                @endauth
+                    @endauth
+  @endif
 
-                 @endif
+                 
 </div>
 </div>
 
@@ -149,5 +150,6 @@ body {
         </main>
   </div>
   </div>
+
 </body>
 </html>

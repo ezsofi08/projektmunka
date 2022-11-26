@@ -17,9 +17,9 @@ h1{
 
 </style>
 
-<div class="container">
+<div class="container" style="background-color: white">
 
-<h1>Orvosaink</h1>
+<h1 class="mb-4">Orvosaink</h1>
 
 
   <div class="row text-center text-lg-start">

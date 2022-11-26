@@ -64,7 +64,7 @@
 
 
 <div>
-<div class="container p-10"id=>
+<div class="container p-10" style="background-color: white">
     <div class="middle_box">
         <div class="bemutatas">
              <h1>Denta<span>Tech</span></h1>
@@ -74,7 +74,7 @@
                     kényelmesen tudod a legmegfelelőbb időpontot kiválasztani.
                 </p>
 
-                <a href="#" class='foglalas_gomb'>IDŐPONTFOGLALÁS</a>
+                <a href="appointment" class='foglalas_gomb'>IDŐPONTFOGLALÁS</a>
 
         </div>
                 <img src="https://cdni.iconscout.com/illustration/premium/thumb/dentist-checking-kids-dental-problem-2681149-2233476.png"
