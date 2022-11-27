@@ -28,9 +28,19 @@ Route::get('/doctors', function () {
 Route::get('/fotok', function () {
     return view('fotok');
 });
-Route::get('/appointment', function () {
-    return view('appointment');
+
+Route::get('/contact', function () {
+    return view('contact');
 });
+
+
+
+
+
+
+Route::get('/appointment', [App\Http\Controllers\DoctorsController::class, 'index'])->name('doctors');
+
+
 
 Auth::routes();
 
