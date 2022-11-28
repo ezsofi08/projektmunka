@@ -60,7 +60,7 @@ label{
       <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+
       <th scope="col">Dátum</th>
       <th scope="col">Kezelés</th>
       <th scope="col">Kezelőorvos</th>
@@ -70,7 +70,7 @@ label{
   <tbody>
   @foreach ($documents as $document)
     <tr>
-      <th scope="row"></th>
+      
       <td>{{ $document -> date}}</td>
      <td>{{ $document -> treatment}}</td>
      <td>{{ $document -> doctor_name}}</td>

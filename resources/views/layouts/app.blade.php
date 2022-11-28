@@ -99,7 +99,7 @@ body {
     <div class="topnav" id="myTopnav" style="background-color: white">
     @if (Route::has('login'))
               <a href="home" class="active">Kezdőlap</a>
-              <a href="#">Kapcsolatok</a>
+              <a href="contact">Kapcsolatok</a>
                  @auth
                  <a href="profil">Saját oldal</a>
                  <a href="javascript:void(0);" class="icon" onclick="myFunction()">

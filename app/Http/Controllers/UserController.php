@@ -29,13 +29,15 @@ class UserController extends Controller
     {
 
         $user=Auth::user();
-        $documents = DB::select('select * from documents');
+        $documents=DB::select('SELECT * FROM documents WHERE user_id = ?', [$user['id']]);
+        //$documents = DB::select('select * from documents');
         return view('profil',compact('user'),['documents'=>$documents]);
     }
 
     public function profil_pdf(){
 
-        $documents = DB::select('select * from documents');
+        $user=Auth::user();
+        $documents=DB::select('SELECT * FROM documents WHERE user_id = ?', [$user['id']]);
         $pdf=PDF::loadView('pdf.treatment',['documents'=>$documents]);
         
         
