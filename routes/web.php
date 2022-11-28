@@ -37,7 +37,7 @@ Route::get('/contact', function () {
 
 
 
-
+Route::get('/profil_pdf', [App\Http\Controllers\UserController::class, 'profil_pdf'])->name('profil_pdf');
 Route::get('/appointment', [App\Http\Controllers\DoctorsController::class, 'index'])->name('doctors');
 
 

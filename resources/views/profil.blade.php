@@ -56,7 +56,30 @@ label{
       
       <div class="col-lg-6 col-md-8 mb-3 mb-md-0">
       <h3 class="mb-3">Kórelőzmény:</h3>
-      </div>
+
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Dátum</th>
+      <th scope="col">Kezelés</th>
+      <th scope="col">Kezelőorvos</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+  @foreach ($documents as $document)
+    <tr>
+      <th scope="row"></th>
+      <td>{{ $document -> date}}</td>
+     <td>{{ $document -> treatment}}</td>
+     <td>{{ $document -> doctor_name}}</td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>
+<a href="{{route('profil_pdf')}}">Részletes kórelőzmény letöltése</a>
+</div>
 </div>
 </div>
 </div>

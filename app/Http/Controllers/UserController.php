@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use PDF;
 
 class UserController extends Controller
 {
@@ -27,7 +29,17 @@ class UserController extends Controller
     {
 
         $user=Auth::user();
-        return view('profil',compact('user'));
+        $documents = DB::select('select * from documents');
+        return view('profil',compact('user'),['documents'=>$documents]);
+    }
+
+    public function profil_pdf(){
+
+        $documents = DB::select('select * from documents');
+        $pdf=PDF::loadView('pdf.treatment',['documents'=>$documents]);
+        
+        
+        return $pdf->download('treatment.pdf');  
     }
 
 }
