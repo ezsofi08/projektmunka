@@ -7,7 +7,7 @@
      width: 100px;
  }
 
-#alma{
+#con{
   width:90vw;
  }
  
@@ -19,7 +19,7 @@
  </style>
 <footer class=" text-center ">
   <!-- Grid container -->
-  <div class="container p-10"id="alma">
+  <div class="container p-10"id="con">
     <!--Grid row-->
     <div class="row">
       <!--Grid column-->

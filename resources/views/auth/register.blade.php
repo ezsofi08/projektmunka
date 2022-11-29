@@ -37,6 +37,19 @@
                             </div>
                         </div>
                         
+                        <div class="row mb-3">
+                            <label for="birthday" class="form-label ">Születési dátum</label>
+
+                            <div class="col-md-9">
+                                <input id="birthday" type="birthday" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday">
+
+                                @error('birthday')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="row mb-3">
                             <label for="email" class="form-label ">Email cím</label>
@@ -51,6 +64,35 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="TAJ" class="form-label">TAJ-szám</label>
+
+                            <div class="col-md-9">
+                                <input id="TAJ" type="text" class="form-control @error('TAJ') is-invalid @enderror" name="TAJ" value="{{ old('TAJ') }}" required autocomplete="TAJ" autofocus>
+                                
+                                @error('TAJ')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="phone_number" class="form-label">Telefonszám</label>
+
+                            <div class="col-md-9">
+                                <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number" autofocus>
+                                
+                                @error('phone_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
 
 
                         <div class="row mb-3">
