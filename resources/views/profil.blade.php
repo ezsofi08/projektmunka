@@ -27,9 +27,9 @@ label{
             <p>Vezetéknév: {{$user->firstname}}</p>
             <p>Keresztnév: {{$user->secondname}}</p>
             <p>Email cím: {{$user->email}}</p>
-            <p>Telefonszám: {{'+36 30 123 4567'}}</p>
-            <p>Tajszám: {{'123-456-789'}}</p>
-            <p>Születési dátum: {{'1978-12-03'}}</p> 
+            <p>Telefonszám: {{$user->phone_number}}</p>
+            <p>Tajszám: {{$user->TAJ}}</p>
+            <p>Születési dátum: {{$user->birthday}}</p> 
         </div>
         <h3 class="mb-3">Jelszó módosítás:</h3>
         <div class="row mb-3">
