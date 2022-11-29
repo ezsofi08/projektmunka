@@ -12,4 +12,9 @@ class Doctors extends Model
     protected $fillable = [
         "name",
     ];
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class,'doctor_id','id');
+    }
 }
