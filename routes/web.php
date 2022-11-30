@@ -34,6 +34,12 @@ Route::get('/contact', function () {
 });
 
 
+Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
+    Route::get('/adminhome',function(){
+        return view('/admin/adminhome');
+    });
+});
+
 
 
 
@@ -41,8 +47,10 @@ Route::get('/profil_pdf', [App\Http\Controllers\UserController::class, 'profil_p
 Route::get('/appointment', [App\Http\Controllers\DoctorsController::class, 'index'])->name('doctors');
 
 
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/profil', [App\Http\Controllers\UserController::class, 'index'])->name('user');
+
+
+
