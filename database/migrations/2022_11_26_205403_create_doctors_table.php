@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('user_id');
+            $table->string('email');
+            $table->string('password');
             $table->timestamps();
         });
     }

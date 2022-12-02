@@ -11,7 +11,8 @@ class Doctors extends Model
 
     protected $fillable = [
         "name",
-        "user_id",
+        "password",
+        "email",
     ];
 
     public function appointments()

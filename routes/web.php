@@ -35,26 +35,9 @@ Route::get('/contact', function () {
 
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
-
     Route::get('/adminhome',function(){
         return view('/admin/adminhome');
     });
-
-    Route::get('/new_appointment',function(){
-        return view('/new_appointment');
-    });
-
-
-
-    Route::get('/valami',[App\Http\Controllers\NextController::class, 'getdata'])->name('getdata');
-
-    Route::post('valami0',[App\Http\Controllers\NextController::class, 'appear']);
-
-    Route::post('savedoc',[App\Http\Controllers\NextController::class, 'savedoc']);
-
-  
-
-
 });
 
 
