@@ -38,7 +38,7 @@ th{
     <tr>
      <td>{{date('H:i', strtotime($app -> end_at))}}</td>
      <td>{{$app -> user_id}}</td>
-     <td>{{$app -> doctor_id}}</td>
+     <td>{{$app -> firstname}} {{$app -> secondname}}</td>
     </tr>
   @endforeach
   </tbody>

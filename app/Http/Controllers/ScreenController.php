@@ -30,7 +30,8 @@ class ScreenController  extends Controller
 
 
     $appointments = DB::table('appointments')
-             ->select('*')
+             ->join('users', 'users.id', '=', 'appointments.doctor_id')
+             ->select('appointments.*', 'users.firstname', 'users.secondname')
              ->where('end_at', '<', $date)
              ->orderBy('end_at')
              ->get();
