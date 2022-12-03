@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('appearance', function (Blueprint $table) {
+        Schema::create('presence', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
             $table->date('datum');
-            $table->int('not_appear');
+            $table->integer('not_appear');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appearance');
+        Schema::dropIfExists('presence');
     }
 };
