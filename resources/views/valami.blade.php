@@ -18,7 +18,7 @@
     <p id="x">SZÜLETÉSI DÁTUM: {{$patient->birthday}}</p>
     <form action="valami0" method="post">
         @csrf
-        <button type="submit" >Nem jelent meg</button>
+        <button class="btn btn-secondary" type="submit" >Nem jelent meg</button>
 </form>
 </div>
 
@@ -33,7 +33,7 @@
         <p>Leírás:</p>
         <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
         <!--<input class="form-control" type="text" rows="5" name="description" id="desc">--> <br>
-        <button type="submit" id="save">Mentés</button>
+        <button class= "btn btn-primary" type="submit" id="save">Mentés</button>
 </form>
 </div>
 
