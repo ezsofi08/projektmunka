@@ -56,14 +56,7 @@
                         @endguest
                     </ul>
                 </div>
-<a href="{{route('logout') }}"
-                      onclick="event.preventDefault();
-                       document.getElementById('logout-form').submit();">
-                         Kijelentkezés
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                         @csrf
-                 </form>
- </a>
+
     @yield('content')
     </div>
     </div>

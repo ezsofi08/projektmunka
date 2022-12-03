@@ -17,7 +17,7 @@ label{
 
 <div class="container" style="background-color: white">
     <h1 class="mb-4">Saját oldal</h1>
-    <div class="container p-10"id="alma">
+    <div class="container p-10">
     <!--Grid row-->
     <div class="row" >
       <!--Grid column-->

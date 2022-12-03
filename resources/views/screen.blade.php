@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--Oldal újratöltés-->
+    <meta http-equiv="refresh" content="60">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,8 +34,9 @@ th{
   
   <tbody>
   @foreach ($appointments as $app)
+   
     <tr>
-     <td>{{$app -> end_at}}</td>
+     <td>{{date('H:i', strtotime($app -> end_at))}}</td>
      <td>{{$app -> user_id}}</td>
      <td>{{$app -> doctor_id}}</td>
     </tr>

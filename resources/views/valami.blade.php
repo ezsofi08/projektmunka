@@ -1,24 +1,45 @@
 @extends('layouts.admin')
 @section('content')
-<form action="valami0" method="post">
+<style>
+
+#x{
+        margin-bottom:90px;
+}
+
+
+</style>
+<div class="container p-10">
+<div class="row" >
+<div class="col-lg-6 col-md-8 mb-3 mb-md-0">
+    <p> IDŐPONT: {{date('H:i', strtotime($appointment->end_at))}}</p> 
+    <p>VEZETÉKNÉV: {{$patient->firstname}}</p> 
+    <p>KERESZTNÉV: {{$patient->secondname}}</p>
+    <p>TAJ: {{$patient->TAJ}}</p>
+    <p id="x">SZÜLETÉSI DÁTUM: {{$patient->birthday}}</p>
+    <form action="valami0" method="post">
         @csrf
-        <button type="submit">Nem jelent meg</button>
+        <button type="submit" >Nem jelent meg</button>
 </form>
-    
-    <p>{{$appointment->end_at}}</p> 
-    <p>{{$patient->firstname}}</p> 
-    <p>{{$patient->secondname}}</p>
-    <p>{{$patient->TAJ}}</p>
-    <p>{{$patient->birthday}}</p>
-<form action="savedoc" method="post">
+</div>
+
+
+
+<div class="col-lg-6 col-md-8 mb-3 mb-md-0">
+<form action="savedoc" method="post" id="form">
+       
         @csrf
         <p>Kezelés:</p>
-        <input type="text" name="treatment">
+        <input type="text" class="form-control" name="treatment">
         <p>Leírás:</p>
-        <input type="text" name="description">
-        <button type="submit">Mentés</button>
+        <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
+        <!--<input class="form-control" type="text" rows="5" name="description" id="desc">--> <br>
+        <button type="submit" id="save">Mentés</button>
 </form>
+</div>
 
 
+
+</div>
+</div>
 
 @endsection
