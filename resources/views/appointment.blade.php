@@ -1,10 +1,16 @@
  @extends('layouts.app')
 
 @section('content')
-<style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <style>
+
 h1{
     text-align:center
-} 
+}
 
 #dropdown{
     width:200px;
@@ -30,53 +36,35 @@ h1{
 
 </style>
 
-<div class="container" style="background-color: white" id="con">
-   
-
+<div class="container" style="background-color: white;" id="con">
     <h1 class="mb-3">Időpontfoglalás</h1>
     <div class="row">
-    <div class="col-sm">
-    <label class="col-md-4" for="start">Mettől:</label>
-
-    <input type="date" id="start" name="trip-start"
-       value="2022-11-26"
-       min="2022-11-26" max="2023-01-31">
-    </div>
-
-    <div class="col-sm">
-    <label class="col-md-4" for="start">Meddig:</label>
-
-    <input type="date" id="end" name="trip-end"
-       value="2022-11-27"
-       min="2022-11-27" max="2023-01-31">
-    </div>
 
     <div class="col-sm" id='hello'>
-    <label for="start">Orvos:</label>
-    
+    <label for="start" class="m-2">Orvos:</label>
+
     <div class="input-group">
-    <select class="custom-select" id="inputGroupSelect04">
+    <select class="custom-select m-1" id="inputGroupSelect04">
   @foreach ($doctors as $doctor)
-    <option> 
+    <option data-name="{{$doctor["name"]}}">
         {{$doctor["name"]}}
     </option>
-  @endforeach  
+  @endforeach
   </select>
-</div>
-</div>
+
 <div class="col-sm">
-<button type="submit" class="btn btn-primary" id="gomb">
-                                    {{ __('Keresés') }}
+<button onclick="getSelectedDoctor();" type="submit" class="btn btn-primary m-2" id="gomb">
+{{ __('Keresés') }}
 </button>
 </div>
 </div>
 
-</div>
+<script>
+    let getSelectedDoctor = () => {
+        let element = document.getElementById("inputGroupSelect04");
+        let name = element.options[element.selectedIndex].getAttribute("data-name");
+        alert(name);
+    }
+</script>
 
-
-
-
-</div>
-
-</div>
 @endsection
