@@ -19,7 +19,7 @@ class NextController  extends Controller
         //$doctor=DB::select('SELECT  * FROM doctors WHERE user_id = ?', [$user['id']] );
        // $doc=$doctor['id'];
        // $appointment=DB::select('SELECT * FROM appointments WHERE doctor_id = ?', [$user['id']]);
-       $appointment = DB::table('appointments')->where('doctor_id', $user->id)->first();
+       $appointment = DB::table('appointments')->where('doctor_id', $user->id)->orderBy('end_at','ASC')->first();
        $patient = DB::table('users')->where('id', $appointment->user_id)->first();
 
         //return view('/valami',compact('doctor'),['doctor'=>$doctor]);
@@ -33,7 +33,22 @@ class NextController  extends Controller
 
     public function appear(){
         //Ide kell a kitiltás
-        DB::table('appointments')->where('end_at', '=', $date)->delete();
+        //DB::table('appointments')->where('end_at', '=', $date)->delete();
+        $user = Auth::user(); //ez az admin 
+        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->orderBy('end_at','ASC')->first();
+        $not_appear = DB::table('presence')->where('user_id', $appointment->user_id)->value('not_appear');
+        $patient_is_in = NULL;
+        $patient_is_in = DB::table('presence')->where('user_id', $appointment->user_id)->value('user_id');
+        
+        if($patient_is_in == NULL){
+            DB::table('presence')->insertGetId(
+                ['user_id' => $appointment->user_id, 'datum' => $appointment->end_at, 'not_appear' => 1]
+            );
+        }
+        else{
+            DB::table('presence')->where('id', $appointment->user_id)
+                ->increment('not_appear', 1, ['datum' => $appointment->end_at]);
+        }
         return view("/admin/adminhome");
     }
 
