@@ -31,26 +31,7 @@ label{
             <p>Tajszám: {{$user->TAJ}}</p>
             <p>Születési dátum: {{$user->birthday}}</p> 
         </div>
-        <h3 class="mb-3">Jelszó módosítás:</h3>
-        <div class="row mb-3">
-                            <label for="oldpassword" class="col-md-2">Régi Jelszó: </label>
-
-                            <div class="col-md-6">
-                                <input id="oldpassword" type="password" class="" name="oldpassword">
-                            </div>
-   
-        </div>
-        <div class="row mb-3">
-                            <label for="newpassword" class="col-md-2">{{ __('Új Jelszó: ') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="newpassword" type="password" class="" name="newpassword">
-                            </div>
-   
-        </div>
-        <button type="submit" class="btn btn-primary mb-3">
-                                    {{ __('Mentés') }}
-        </button>
+        
                         
       </div>
       
