@@ -49,6 +49,7 @@ class NextController  extends Controller
             DB::table('presence')->where('id', $appointment->user_id)
                 ->increment('not_appear', 1, ['datum' => $appointment->end_at]);
         }
+        DB::table('appointments')->where('end_at', '=', $appointment->end_at)->delete();
         return view("/admin/adminhome");
     }
 
