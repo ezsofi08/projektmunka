@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Document;
+use PDF;
 
 
 
@@ -78,7 +79,17 @@ class NextController  extends Controller
 
         return view("/admin/adminhome");
     }
-        
-    
+
+    public function getdoc(){
+
+        $user=Auth::user();
+        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->first();
+        $patient = DB::table('users')->where('id', $appointment->user_id)->first();
+        $user_id=$patient->id;
+
+        $documents=DB::select('SELECT * FROM documents WHERE user_id = ?', [$user_id]);
+        $pdf=PDF::loadView('pdf.treatment',['documents'=>$documents]);
+        return $pdf->download('treatment.pdf');
+    }
 
 }

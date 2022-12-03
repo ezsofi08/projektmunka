@@ -11,12 +11,19 @@ p{
 label{
     font-size:16px;
 }
+#con{
+    height: 600px;
+}
+
+#l{
+  margin-bottom:90px;
+}
 
 </style>
 
 
-<div class="container" style="background-color: white">
-    <h1 class="mb-4">Saját oldal</h1>
+<div class="container" style="background-color: white" id="con">
+    <h1 class="mb-4" id="l">Saját oldal</h1>
     <div class="container p-10">
     <!--Grid row-->
     <div class="row" >

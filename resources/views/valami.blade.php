@@ -3,7 +3,10 @@
 <style>
 
 #x{
-        margin-bottom:90px;
+        margin-bottom:20px;
+}
+#doc{
+        margin-bottom:20px;   
 }
 
 
@@ -16,6 +19,10 @@
     <p>KERESZTNÉV: {{$patient->secondname}}</p>
     <p>TAJ: {{$patient->TAJ}}</p>
     <p id="x">SZÜLETÉSI DÁTUM: {{$patient->birthday}}</p>
+<form action="getdoc" method="post">
+        @csrf
+        <button class="btn btn-secondary" type="submit" id="doc" >Kórelőzmény</button>
+</form>
     <form action="valami0" method="post">
         @csrf
         <button class="btn btn-secondary" type="submit" >Nem jelent meg</button>

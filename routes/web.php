@@ -50,6 +50,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
     Route::post('valami0',[App\Http\Controllers\NextController::class, 'appear']);
 
+    Route::post('getdoc',[App\Http\Controllers\NextController::class, 'getdoc']);
+
     Route::post('savedoc',[App\Http\Controllers\NextController::class, 'savedoc']);
 
   
