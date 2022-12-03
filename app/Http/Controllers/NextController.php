@@ -41,7 +41,12 @@ class NextController  extends Controller
         $appointment = DB::table('appointments')->where('doctor_id', $user->id)->first();
         $patient = DB::table('users')->where('id', $appointment->user_id)->first();
         $user_id=$patient->id;
+        $user_TAJ=$patient->TAJ;
+        $user_first_name=$patient->firstname;
+        $user_second_name=$patient->secondname;
         $doctor_id=$user->id;
+        $doctor_first_name=$user->firstname;
+        $doctor_second_name=$user->secondname;
         $date=$appointment->end_at;
         //$doctor_name=$user->firstname +$user->secondname;
         
@@ -50,7 +55,7 @@ class NextController  extends Controller
         $description=$req->input('description');
 
 
-        DB::insert('insert into documents (user_id,doctor_id,date,treatment,description) values (?,?,?,?,?)', [$user_id,$doctor_id,$date,$treatment,$description]);
+        DB::insert('insert into documents (user_id,doctor_id,date,treatment,description,TAJ,user_first_name,user_second_name,doctor_first_name,doctor_second_name) values (?,?,?,?,?,?,?,?,?,?)', [$user_id,$doctor_id,$date,$treatment,$description,$user_TAJ,$user_first_name,$user_second_name,$doctor_first_name,$doctor_second_name]);
         return view("/admin/adminhome");
     }
         

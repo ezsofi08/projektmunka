@@ -17,8 +17,11 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->bigInteger('doctor_id');
-            $table->string('doctor_name');
-            $table->string('user_name');
+            $table->string('doctor_first_name');
+            $table->string('doctor_second_name');
+            $table->string('user_first_name');
+            $table->string('user_second_name');
+            $table->string('TAJ');
             $table->string('treatment');
             $table->string('description');
             $table->date('date');
