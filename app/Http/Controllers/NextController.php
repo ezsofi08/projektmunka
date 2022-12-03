@@ -37,10 +37,23 @@ class NextController  extends Controller
     }
 
     public function savedoc(Request $req){
+        $user=Auth::user();
+        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->first();
+        $patient = DB::table('users')->where('id', $appointment->user_id)->first();
+        $user_id=$patient->id;
+        $doctor_id=$user->id;
+        $date=$appointment->end_at;
+        //$doctor_name=$user->firstname +$user->secondname;
         
-        $treatment=request->input('treatment');
-        $treatment=request->input('description');
-        
+        //DB::insert('INSERT INTO documents (user_id) VALUES '[$patient['id']]);
+        $treatment=$req->input('treatment');
+        $description=$req->input('description');
+
+
+        DB::insert('insert into documents (user_id,doctor_id,date,treatment,description) values (?,?,?,?,?)', [$user_id,$doctor_id,$date,$treatment,$description]);
+        return view("/admin/adminhome");
     }
+        
+    
 
 }
