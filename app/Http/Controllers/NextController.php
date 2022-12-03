@@ -33,6 +33,7 @@ class NextController  extends Controller
 
     public function appear(){
         //Ide kell a kitiltás
+        DB::table('appointments')->where('end_at', '=', $date)->delete();
         return view("/admin/adminhome");
     }
 

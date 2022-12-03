@@ -67,6 +67,7 @@ Route::get('/appointment', [App\Http\Controllers\DoctorsController::class, 'inde
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/screen', [App\Http\Controllers\ScreenController::class, 'getdata'])->name('getdata');
 Route::get('/profil', [App\Http\Controllers\UserController::class, 'index'])->name('user');
 
 
