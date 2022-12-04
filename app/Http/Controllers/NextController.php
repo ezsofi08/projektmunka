@@ -11,8 +11,8 @@ use PDF;
 
 class NextController  extends Controller
 {
-   
- 
+
+
     public function getdata()
     {
         $user=Auth::user();
@@ -21,13 +21,15 @@ class NextController  extends Controller
        // $doc=$doctor['id'];
        // $appointment=DB::select('SELECT * FROM appointments WHERE doctor_id = ?', [$user['id']]);
        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->orderBy('end_at','ASC')->first();
+       if ($appointment == null)
+           return view('admin/adminhome');
        $patient = DB::table('users')->where('id', $appointment->user_id)->first();
 
         //return view('/valami',compact('doctor'),['doctor'=>$doctor]);
        return view('/valami',compact('appointment'),['appointment'=>$appointment, 'patient'=>$patient]);
 
-       
-        
+
+
        // return view('profil',compact('user'),['documents'=>$documents, 'appointments' => $appointments]);
     }
 
@@ -35,12 +37,12 @@ class NextController  extends Controller
     public function appear(){
         //Ide kell a kitiltás
         //DB::table('appointments')->where('end_at', '=', $date)->delete();
-        $user = Auth::user(); //ez az admin 
+        $user = Auth::user(); //ez az admin
         $appointment = DB::table('appointments')->where('doctor_id', $user->id)->orderBy('end_at','ASC')->first();
         $not_appear = DB::table('presence')->where('user_id', $appointment->user_id)->value('not_appear');
         $patient_is_in = NULL;
         $patient_is_in = DB::table('presence')->where('user_id', $appointment->user_id)->value('user_id');
-        
+
         if($patient_is_in == NULL){
             DB::table('presence')->insertGetId(
                 ['user_id' => $appointment->user_id, 'datum' => $appointment->end_at, 'not_appear' => 1]
@@ -67,14 +69,14 @@ class NextController  extends Controller
         $doctor_second_name=$user->secondname;
         $date=$appointment->end_at;
         //$doctor_name=$user->firstname +$user->secondname;
-        
+
         //DB::insert('INSERT INTO documents (user_id) VALUES '[$patient['id']]);
         $treatment=$req->input('treatment');
         $description=$req->input('description');
 
 
         DB::insert('insert into documents (user_id,doctor_id,date,treatment,description,TAJ,user_first_name,user_second_name,doctor_first_name,doctor_second_name) values (?,?,?,?,?,?,?,?,?,?)', [$user_id,$doctor_id,$date,$treatment,$description,$user_TAJ,$user_first_name,$user_second_name,$doctor_first_name,$doctor_second_name]);
-       
+
         DB::table('appointments')->where('end_at', '=', $date)->delete();
 
         return view("/admin/adminhome");
