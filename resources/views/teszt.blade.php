@@ -12,25 +12,15 @@ h1{
     text-align:center
 }
 
-#dropdown{
-    width:200px;
-}
-#start{
-    width:200px;
-}
-#end{
-    width:200px;
-}
 #con{
     height: 600px;
+    align-items: center;
+    justify-content: center;
 }
 
 #gomb{
-    height:50px;
-    width:100px;
-    font-size:18px;
-    background-color: rgb(65, 88, 192)
-
+margin-right:20px;
+margin-bottom:20px;
 }
 
 
@@ -40,15 +30,15 @@ h1{
     <h1 class="mb-3">Időpontfoglalás</h1>
     <div class="row">
 
-    <div class="col-sm" id='hello'>
+    <div class="col-sm">
     <div class="input-group">
 
 @foreach ($appointments as $app)
  
-          <form method="post" action="teszt0">
+          <form method="post" action="teszt0" id="gomb">
           @csrf
           <input type="hidden" name="book" value="{{{ $app->id }}}">
-          <input type="submit" class="btn btn-danger" value="{{ $app->end_at }}">
+          <input type="submit" class="btn btn-primary" value="{{ $app->end_at }}">
           </form>
 
 @endforeach

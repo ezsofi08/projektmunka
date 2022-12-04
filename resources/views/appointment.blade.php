@@ -52,7 +52,7 @@ h1{
                     <form method="post" action="doc">
                         @csrf
                         <input type="hidden" name="doctor" value="{{{ $doctor->id }}}">
-                        <input type="submit" class="btn btn-danger" value="Megnézem">
+                        <input type="submit" class="btn btn-primary" value="Megnézem">
                     </form>
                 </div>
             </div>
