@@ -19,8 +19,9 @@ class TesztController  extends Controller
 
    public function getapp($doc){
    $appointments=DB::table('appointments')
-	->where('user_id','=',0 )->where('doctor_id','=',$doc)
-	->get();
+	    ->where('user_id','=',null )
+        ->where('doctor_id','=',$doc)
+	    ->get();
    return $appointments;
    // $appointments=DB::select('SELECT * FROM appointments');
     //return view('teszt',['appointments'=>$appointments]);
@@ -58,4 +59,4 @@ class TesztController  extends Controller
 
 }
 
-    
+

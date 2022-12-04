@@ -46,17 +46,16 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
         return view('/new_appointment');
     });
 
+    Route::post('/add_new_appointment', [App\Http\Controllers\DoctorsController::class, 'createAppointment']);
+
     Route::get('/valami',[App\Http\Controllers\NextController::class, 'getdata']);
     Route::post('valami0',[App\Http\Controllers\NextController::class, 'appear']);
-
     Route::post('getdoc',[App\Http\Controllers\NextController::class, 'getdoc']);
-
     Route::post('savedoc',[App\Http\Controllers\NextController::class, 'savedoc']);
 });
 
 Route::get('/profil_pdf', [App\Http\Controllers\UserController::class, 'profil_pdf'])->name('profil_pdf');
 Route::get('/appointment', [App\Http\Controllers\DoctorsController::class, 'index'])->name('doctors');
-Route::get('/appointments', [App\Http\Controllers\DoctorsController::class, 'showAppointments'])->name('appointments');
 
 Auth::routes();
 
