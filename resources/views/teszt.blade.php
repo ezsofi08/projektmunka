@@ -38,7 +38,9 @@ margin-bottom:20px;
           <!--<form method="post" action="teszt0" id="gomb">
           @csrf
           <input type="hidden" name="book" value="{{{ $app->id }}}">-->
+          <div id="gomb">
           <input type="submit" class="btn btn-primary" value="{{ $app->end_at }}" lass="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+          </div>
           </form>
 
 
