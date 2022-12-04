@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\Appointment;
 use App\Models\Doctors;
@@ -20,15 +22,22 @@ class DoctorsController extends Controller
     }
 
     /* Get all available appointments belonging to the given doctor*/
-    public function showAppointments($id)
+    public function createAppointment(Request $request)
     {
-        $doctor = Doctors::all()->where('id', $id)->firstOrFail();
-        $appointments = Appointment::all()
-            ->where('doctor_id','=',$doctor->id)
-            ->where('user_id','=','Available');
-        return response()->json(
-            $appointments,
-            Response::HTTP_OK
-        );
+        $user = Auth::user(); //ez az admin
+        $date = $request->input('newAppointment');
+        $doctor = Doctors::all()->where('id', $user->id)->firstOrFail();
+        /*
+        $isDateExist = Appointment::all()
+            ->where('end_at', '=', $date)
+            ->where('doctor_id','=',$user->id)->first();
+
+        */
+        $newAppointment = new Appointment();
+        $newAppointment['doctor_id'] = $doctor['id'];
+        $newAppointment['end_at'] = $date;
+        $newAppointment->save();
+        return redirect('admin/new_appointment');
+
     }
 }
