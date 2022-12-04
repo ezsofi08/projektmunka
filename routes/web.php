@@ -51,6 +51,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::get('/valami',[App\Http\Controllers\NextController::class, 'getdata']);
     Route::post('valami0',[App\Http\Controllers\NextController::class, 'appear']);
     Route::post('getdoc',[App\Http\Controllers\NextController::class, 'getdoc']);
+    Route::post('getquestions',[App\Http\Controllers\NextController::class, 'getquestions']);
     Route::post('savedoc',[App\Http\Controllers\NextController::class, 'savedoc']);
 });
 

@@ -3,10 +3,13 @@
 <style>
 
 #x{
-        margin-bottom:20px;
+        margin-bottom:10px;
 }
 #doc{
-        margin-bottom:20px;
+        margin-bottom:10px;
+}
+#qu{
+        margin-bottom:10px; 
 }
 
 
@@ -23,6 +26,12 @@
         @csrf
         <button class="btn btn-secondary" type="submit" id="doc" >Kórelőzmény</button>
 </form>
+
+<form action="getquestions" method="post">
+        @csrf
+        <button class="btn btn-secondary" type="submit" id="qu" >Kérdőív</button>
+</form>
+
     <form action="valami0" method="post">
         @csrf
         <button class="btn btn-secondary" type="submit" >Nem jelent meg</button>

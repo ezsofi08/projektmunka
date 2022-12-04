@@ -58,7 +58,7 @@ class NextController  extends Controller
 
     public function savedoc(Request $req){
         $user=Auth::user();
-        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->first();
+        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->orderBy('end_at','ASC')->first();
         $patient = DB::table('users')->where('id', $appointment->user_id)->first();
         $user_id=$patient->id;
         $user_TAJ=$patient->TAJ;
@@ -86,13 +86,26 @@ class NextController  extends Controller
     public function getdoc(){
 
         $user=Auth::user();
-        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->first();
+        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->orderBy('end_at','ASC')->first();
         $patient = DB::table('users')->where('id', $appointment->user_id)->first();
         $user_id=$patient->id;
 
         $documents=DB::select('SELECT * FROM documents WHERE user_id = ?', [$user_id]);
         $pdf=PDF::loadView('pdf.treatment',['documents'=>$documents]);
         return $pdf->download('treatment.pdf');
+    }
+
+
+    public function getquestions(){
+
+        $user=Auth::user();
+        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->first();
+        $patient = DB::table('users')->where('id', $appointment->user_id)->first();
+        $user_id=$patient->id;
+
+        $questions=DB::select('SELECT * FROM questions WHERE appointment_id = ?', [$appointment->id]);
+        $pdf=PDF::loadView('pdf.questions',['questions'=>$questions]);
+        return $pdf->download('questions.pdf');
     }
 
 }
