@@ -55,6 +55,9 @@ class TesztController  extends Controller
       DB::table('appointments')->where('id', $app)
                 ->update(['user_id' => $user->id]);
 
+      return view('home');
+      
+
    }
 
 }
