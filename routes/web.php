@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Input;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +63,14 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/screen', [App\Http\Controllers\ScreenController::class, 'getdata'])->name('getdata');
 Route::get('/profil', [App\Http\Controllers\UserController::class, 'index'])->name('user');
+
+Route::get('/teszt', [App\Http\Controllers\TesztController::class, 'getapp'])->name('getapp');
+
+
+Route::post('teszt0',[App\Http\Controllers\TesztController::class, 'book']);
+
+
+
 
 
 
