@@ -44,11 +44,10 @@ h1{
     <label for="start" class="m-2">Orvosok</label>
 
     <div class="input-group">
-  @foreach ($doctors as $doctor)
+  @foreach ($appointments as $appointment)
             <div class="card p-1 m-1" style="width: 18rem;">
                 <div class="card-body">
                     <p class="card-text">{{$doctor["name"]}}</p>
-                    {{-- itt át kell irányítani az orvos időpontjaihoz,egyelőre nem jó --}}
                     <a href='appointments' class="btn btn-primary">Megnézem</a>
                 </div>
             </div>
