@@ -33,6 +33,7 @@ class ScreenController  extends Controller
              ->join('users', 'users.id', '=', 'appointments.doctor_id')
              ->select('appointments.*', 'users.firstname', 'users.secondname')
              ->where('end_at', '<', $date)
+             ->where('appointments.user_id', '!=', 0)
              ->orderBy('end_at')
              ->get();
 
