@@ -29,6 +29,7 @@
      padding-right: 100px;
      margin-right: 20px;
      background-color:rgb(238, 240, 240) ;
+     height: 250px;
 }
 .box ul li h1{
     padding-bottom: 10px;
@@ -49,7 +50,7 @@
                  <ul>
                         <li>
                             <h1>CÍM</h1>
-                            <p>8315 Gyenesdiás <br> Jókai utca 23/5</p>
+                            <p>8315 Gyenesdiás <br> Jókai utca 23</p>
                         </li>
                         <li>
                             <h1>NYITVATARTÁS</h1>
