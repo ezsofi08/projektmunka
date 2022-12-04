@@ -37,6 +37,7 @@ label{
             <p>Telefonszám: {{$user->phone_number}}</p>
             <p>Tajszám: {{$user->TAJ}}</p>
             <p>Születési dátum: {{$user->birthday}}</p>
+            <p>Sorszám: {{$user->id}}</p>
         </div>
 
 
