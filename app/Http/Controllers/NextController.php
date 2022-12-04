@@ -74,8 +74,9 @@ class NextController  extends Controller
         $treatment=$req->input('treatment');
         $description=$req->input('description');
 
-
         DB::insert('insert into documents (user_id,doctor_id,date,treatment,description,TAJ,user_first_name,user_second_name,doctor_first_name,doctor_second_name) values (?,?,?,?,?,?,?,?,?,?)', [$user_id,$doctor_id,$date,$treatment,$description,$user_TAJ,$user_first_name,$user_second_name,$doctor_first_name,$doctor_second_name]);
+
+        //DB::insert('insert into documents (user_id,doctor_id,date,treatment,description,TAJ,user_first_name,user_second_name,doctor_first_name,doctor_second_name) values (?,?,?,?,?,?,?,?,?,?)', [$user_id,$doctor_id,$date,$treatment,$description,$user_TAJ,$user_first_name,$user_second_name,$doctor_first_name,$doctor_second_name]);
 
         DB::table('appointments')->where('end_at', '=', $date)->delete();
 

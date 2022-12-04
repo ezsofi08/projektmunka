@@ -44,12 +44,6 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Bejelentkezés') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Elfelejtett jelszó') }}
-                                    </a>
-                                @endif
                             </div>
                         </div>
                     </form>

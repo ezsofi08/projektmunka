@@ -67,9 +67,11 @@ Route::get('/profil', [App\Http\Controllers\UserController::class, 'index'])->na
 Route::get('/teszt', [App\Http\Controllers\TesztController::class, 'getapp'])->name('getapp');
 
 
-Route::post('teszt0',[App\Http\Controllers\TesztController::class, 'book']);
+//Route::post('teszt0',[App\Http\Controllers\TesztController::class, 'book']);
 
 Route::post('doc',[App\Http\Controllers\TesztController::class, 'doc']);
+
+Route::post('question',[App\Http\Controllers\TesztController::class, 'question']);
 
 
 

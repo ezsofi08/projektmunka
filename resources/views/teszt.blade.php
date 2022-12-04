@@ -35,11 +35,58 @@ margin-bottom:20px;
 
 @foreach ($appointments as $app)
  
-          <form method="post" action="teszt0" id="gomb">
+          <!--<form method="post" action="teszt0" id="gomb">
           @csrf
-          <input type="hidden" name="book" value="{{{ $app->id }}}">
-          <input type="submit" class="btn btn-primary" value="{{ $app->end_at }}">
+          <input type="hidden" name="book" value="{{{ $app->id }}}">-->
+          <input type="submit" class="btn btn-primary" value="{{ $app->end_at }}" lass="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
           </form>
+
+
+
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Kérdőív</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form method="post" action="question" id="gomb">
+          <div class="form-group">
+        
+          <label for="recipient-name" class="col-form-label">Milyen okból látogat el a fogorvoshoz? (pl: kontroll, panaszom van..)</label>
+          @csrf 
+          <input type="text" class="form-control" name="reason">
+          </div>
+          <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Mik a panaszai? (Amennyiben van)</label>
+            <input type="text" class="form-control" id="recipient-name" name="complain">
+          </div>
+          <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Mióta állnak fent a panaszai? (Amennyiben van?)</label>
+            <input type="text" class="form-control" id="recipient-name" name="time">
+          </div>
+          <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Van e fogszabályzója?</label>
+            <input type="text" class="form-control" id="recipient-name" name="braces">
+          </div>
+          <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Van e valamilyen gyógyszer allergiája?</label>
+            <input type="text" class="form-control" id="recipient-name" name="medicine">
+          </div>
+       
+      </div>
+      <div class="modal-footer">
+          @csrf
+          <input type="hidden" name="question" value="{{{ $app->id }}}">
+          <input type="submit" class="btn btn-primary" value="Mentés" lass="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 @endforeach
 
@@ -50,3 +97,4 @@ margin-bottom:20px;
 
 
 @endsection
+

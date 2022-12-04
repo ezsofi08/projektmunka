@@ -27,13 +27,32 @@ class TesztController  extends Controller
    }
 
 
-   public function book(Request $req){
+   /*public function book(Request $req){
       $user=Auth::user();
       $app=$req->input('book');
-      echo"$app";
       DB::table('appointments')->where('id', $app)
                 ->update(['user_id' => $user->id]);
 
+
+   }*/
+
+   public function question(Request $req){
+      $user=Auth::user();
+      $app=$req->input('question');
+      
+
+      $reason=$req->input('reason');
+      $complain=$req->input('complain');
+      $time=$req->input('time'); 
+      $braces=$req->input('braces');
+      $medicine=$req->input('medicine');      
+
+
+
+      DB::insert('insert into questions (reason,complain,time,braces,medicine,appointment_id) values (?,?,?,?,?,?)', [$reason,$complain,$time,$braces,$medicine,$app]);
+         
+      DB::table('appointments')->where('id', $app)
+                ->update(['user_id' => $user->id]);
 
    }
 
