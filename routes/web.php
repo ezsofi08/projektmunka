@@ -69,6 +69,8 @@ Route::get('/teszt', [App\Http\Controllers\TesztController::class, 'getapp'])->n
 
 Route::post('teszt0',[App\Http\Controllers\TesztController::class, 'book']);
 
+Route::post('doc',[App\Http\Controllers\TesztController::class, 'doc']);
+
 
 
 

@@ -6,17 +6,24 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
-
 class TesztController  extends Controller
 {
-   public function getapp(){
-   
-    $appointments=DB::table('appointments')
-	->where('user_id','=',0)
-	->get();
 
+   public function doc(Request $req){
+      $doc=$req->input('doctor');
+      $app= $this->getapp($doc);
+      return view('teszt',['appointments'=>$app]);
+      //echo "$doc";
+   }
+
+
+   public function getapp($doc){
+   $appointments=DB::table('appointments')
+	->where('user_id','=',0 )->where('doctor_id','=',$doc)
+	->get();
+   return $appointments;
    // $appointments=DB::select('SELECT * FROM appointments');
-    return view('teszt',['appointments'=>$appointments]);
+    //return view('teszt',['appointments'=>$appointments]);
    }
 
 
@@ -29,5 +36,7 @@ class TesztController  extends Controller
 
 
    }
-    
+
 }
+
+    

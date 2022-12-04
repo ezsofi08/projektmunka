@@ -1,4 +1,4 @@
- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,7 +49,11 @@ h1{
                 <div class="card-body">
                     <p class="card-text">{{$doctor["name"]}}</p>
                     {{-- itt át kell irányítani az orvos időpontjaihoz,egyelőre nem jó --}}
-                    <a href='appointments' class="btn btn-primary">Megnézem</a>
+                    <form method="post" action="doc">
+                        @csrf
+                        <input type="hidden" name="doctor" value="{{{ $doctor->id }}}">
+                        <input type="submit" class="btn btn-danger" value="Megnézem">
+                    </form>
                 </div>
             </div>
   @endforeach
