@@ -21,6 +21,7 @@ class TesztController  extends Controller
    $appointments=DB::table('appointments')
 	    ->where('user_id','=', null)
         ->where('doctor_id','=',$doc)
+        ->orderby('end_at','asc')
 	    ->get();
    return $appointments;
    // $appointments=DB::select('SELECT * FROM appointments');

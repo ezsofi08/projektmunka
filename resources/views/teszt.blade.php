@@ -19,15 +19,23 @@ h1{
 }
 
 #gomb{
-margin-right:20px;
-margin-bottom:20px;
+margin-right:45px;
+margin-bottom:40px;
+height: 55px;
+width: 210px;
+align-items: center;
 }
 
+#title{
+  margin-bottom: 40px;
+}
 
 </style>
 
 <div class="container" style="background-color: white;" id="con">
-    <h1 class="mb-3">Időpontfoglalás</h1>
+<div id="title">
+    <h1 class="mb-3" >Időpontfoglalás</h1>
+    </div>
     <div class="row">
 
     <div class="col-sm">
@@ -39,13 +47,12 @@ margin-bottom:20px;
           @csrf
           <input type="hidden" name="book" value="{{{ $app->id }}}">-->
           <div id="gomb">
-          <input type="submit" class="btn btn-primary" value=" {{date('Y-m-d H:m',strtotime($app->end_at))}}" lass="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+          <input id="gomb" type="submit" class="btn btn-primary" value=" {{date('Y-m-d H:i',strtotime($app->end_at))}}" lass="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
           </div>
-          </form>
 
 
 
- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -99,4 +106,3 @@ margin-bottom:20px;
 
 
 @endsection
-

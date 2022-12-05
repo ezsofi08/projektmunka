@@ -38,7 +38,7 @@ class NextController  extends Controller
         //Ide kell a kitiltás
         //DB::table('appointments')->where('end_at', '=', $date)->delete();
         $user = Auth::user(); //ez az admin
-        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->orderBy('end_at','ASC')->first();
+        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->where('user_id','<>',null)->orderBy('end_at','ASC')->first();
         $not_appear = DB::table('presence')->where('user_id', $appointment->user_id)->value('not_appear');
         $patient_is_in = NULL;
         $patient_is_in = DB::table('presence')->where('user_id', $appointment->user_id)->value('user_id');

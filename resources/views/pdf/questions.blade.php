@@ -22,7 +22,7 @@
 </style>
 @foreach ($questions as $qu)
 
-    <h1 class="pdf_title">Űrlap</h1>
+    <h1 class="pdf_title">Panaszok felmérése</h1>
     <br>
     <br>
     <p class="pdf_content"> Látogatás oka: {{ $qu -> reason}}</p>
