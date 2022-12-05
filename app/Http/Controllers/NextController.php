@@ -95,6 +95,22 @@ class NextController  extends Controller
         return $pdf->download('treatment.pdf');
     }
 
+    public function medicine(Request $req){
+
+        $user=Auth::user();
+        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->where('user_id','<>',null)->orderBy('end_at','ASC')->first();
+        $patient = DB::table('users')->where('id', $appointment->user_id)->first();
+        $user_TAJ=$patient->TAJ;
+        $user_first_name=$patient->firstname;
+        $user_second_name=$patient->secondname;
+        $doctor_first_name=$user->firstname;
+        $doctor_second_name=$user->secondname;
+        $medicine=$req->input('medicine'); 
+        $packaging=$req->input('packaging');
+
+        DB::insert('insert into medicine (doctor_first_name,doctor_second_name,user_first_name,user_second_name,TAJ,medicine,packaging) values (?,?,?,?,?,?,?)', [$doctor_first_name,$doctor_second_name,$user_first_name,$user_second_name,$user_TAJ,$medicine,$packaging]);
+    }
+
 
     public function getquestions(){
 

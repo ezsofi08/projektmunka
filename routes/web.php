@@ -57,6 +57,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::post('getdoc',[App\Http\Controllers\NextController::class, 'getdoc']);
     Route::post('getquestions',[App\Http\Controllers\NextController::class, 'getquestions']);
     Route::post('savedoc',[App\Http\Controllers\NextController::class, 'savedoc']);
+    Route::post('medicine',[App\Http\Controllers\NextController::class, 'medicine']);
 });
 
 Route::get('/profil_pdf', [App\Http\Controllers\UserController::class, 'profil_pdf'])->name('profil_pdf');
