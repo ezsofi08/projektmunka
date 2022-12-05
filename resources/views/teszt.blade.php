@@ -19,40 +19,33 @@ h1{
 }
 
 #gomb{
-margin-right:45px;
-margin-bottom:40px;
-height: 55px;
-width: 210px;
-align-items: center;
+margin-right:20px;
+margin-bottom:20px;
 }
 
-#title{
-  margin-bottom: 40px;
-}
 
 </style>
 
 <div class="container" style="background-color: white;" id="con">
-<div id="title">
-    <h1 class="mb-3" >Időpontfoglalás</h1>
-    </div>
+    <h1 class="mb-3">Időpontfoglalás</h1>
     <div class="row">
 
     <div class="col-sm">
     <div class="input-group">
 
 @foreach ($appointments as $app)
- 
+
           <!--<form method="post" action="teszt0" id="gomb">
           @csrf
           <input type="hidden" name="book" value="{{{ $app->id }}}">-->
           <div id="gomb">
-          <input id="gomb" type="submit" class="btn btn-primary" value=" {{date('Y-m-d H:i',strtotime($app->end_at))}}" lass="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+          <input type="submit" class="btn btn-primary" value=" {{date('Y-m-d H:m',strtotime($app->end_at))}}" lass="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
           </div>
+          </form>
 
 
 
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -64,9 +57,9 @@ align-items: center;
       <div class="modal-body">
       <form method="post" action="question" id="gomb">
           <div class="form-group">
-        
+
           <label for="recipient-name" class="col-form-label">Milyen okból látogat el a fogorvoshoz? (pl: kontroll, panaszom van..)</label>
-          @csrf 
+          @csrf
           <input type="text" class="form-control" name="reason">
           </div>
           <div class="form-group">
@@ -85,7 +78,7 @@ align-items: center;
           <label for="recipient-name" class="col-form-label">Van e valamilyen gyógyszer allergiája?</label>
             <input type="text" class="form-control" id="recipient-name" name="medicine">
           </div>
-       
+
       </div>
       <div class="modal-footer">
           @csrf
@@ -106,3 +99,4 @@ align-items: center;
 
 
 @endsection
+
