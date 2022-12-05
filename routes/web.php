@@ -35,6 +35,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/not_appear', function () {
+    return view('not_appear');
+});
+
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
