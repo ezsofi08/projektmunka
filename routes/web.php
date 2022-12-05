@@ -58,7 +58,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::post('getquestions',[App\Http\Controllers\NextController::class, 'getquestions']);
     Route::post('savedoc',[App\Http\Controllers\NextController::class, 'savedoc']);
     Route::post('medicine',[App\Http\Controllers\NextController::class, 'medicine']);
-    
+
 });
 Route::get('admin_booked_appointment',[App\Http\Controllers\AdminBookController::class, 'booked']);
 
@@ -81,7 +81,6 @@ Route::get('/teszt', [App\Http\Controllers\TesztController::class, 'getapp'])->n
 Route::post('doc',[App\Http\Controllers\TesztController::class, 'doc']);
 
 Route::post('question',[App\Http\Controllers\TesztController::class, 'question']);
-
 
 
 
