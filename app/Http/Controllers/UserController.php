@@ -30,7 +30,7 @@ class UserController extends Controller
     public function index()
     {
         $user=Auth::user();
-        $documents=DB::select('SELECT * FROM documents WHERE user_id = ?', [$user['id']]);
+        $documents=DB::connection('eeszt')->select('SELECT * FROM documents WHERE user_id = ?', [$user['id']]);
         $appointments = User::all()->find($user['id'])->appointments;
         //$documents = DB::select('select * from documents');
         return view('profil',compact('user'),['documents'=>$documents, 'appointments' => $appointments]);
@@ -39,7 +39,7 @@ class UserController extends Controller
     public function profil_pdf(){
 
         $user=Auth::user();
-        $documents=DB::select('SELECT * FROM documents WHERE user_id = ?', [$user['id']]);
+        $documents=DB::connection('eeszt')->select('SELECT * FROM documents WHERE user_id = ?', [$user['id']]);
         $pdf=PDF::loadView('pdf.treatment',['documents'=>$documents]);
 
 

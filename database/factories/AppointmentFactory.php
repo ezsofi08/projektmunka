@@ -20,9 +20,10 @@ class AppointmentFactory extends Factory
     public function definition()
     {
         return [
-            'doctor_id' => User::all()->random(1)->first()->id,
-            'user_id' => User::all()->random(1)->first()->id,
-            'end_at' => fake()->dateTimeBetween('2022-11-29','2022-12-31')
+            // Should generate doctors with role=1, but its a @TODO
+            'doctor_id' => User::all()->where('role', '=', 0)->random(1)->first()->id,
+            'user_id' => User::all()->where('role','=', 0)->random(1)->first()->id,
+            'end_at' => fake()->dateTimeBetween('2022-11-01','2022-12-31')
         ];
     }
 }

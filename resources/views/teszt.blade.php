@@ -34,7 +34,7 @@ margin-bottom:20px;
     <div class="input-group">
 
 @foreach ($appointments as $app)
- 
+
           <!--<form method="post" action="teszt0" id="gomb">
           @csrf
           <input type="hidden" name="book" value="{{{ $app->id }}}">-->
@@ -57,9 +57,9 @@ margin-bottom:20px;
       <div class="modal-body">
       <form method="post" action="question" id="gomb">
           <div class="form-group">
-        
+
           <label for="recipient-name" class="col-form-label">Milyen okból látogat el a fogorvoshoz? (pl: kontroll, panaszom van..)</label>
-          @csrf 
+          @csrf
           <input type="text" class="form-control" name="reason">
           </div>
           <div class="form-group">
@@ -78,7 +78,7 @@ margin-bottom:20px;
           <label for="recipient-name" class="col-form-label">Van e valamilyen gyógyszer allergiája?</label>
             <input type="text" class="form-control" id="recipient-name" name="medicine">
           </div>
-       
+
       </div>
       <div class="modal-footer">
           @csrf
