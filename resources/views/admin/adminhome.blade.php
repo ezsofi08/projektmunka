@@ -24,6 +24,7 @@
 
   <a href="/admin/new_appointment" class="list-group-item-info list-group-item list-group-item-action">Új időpont feltöltése</a>
   <a href="/admin/valami" class="list-group-item-info list-group-item list-group-item-action">Következő időpontom</a>
+  <a href="/admin_booked_appointment" class="list-group-item-info list-group-item list-group-item-action">Foglalt időpontok</a>
   <a   class="list-group-item-info list-group-item list-group-item-action" href="{{route('logout') }}"
                       onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();">
