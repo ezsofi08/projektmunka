@@ -90,13 +90,8 @@ csak azért hogy lássam működik-e. Az adatok lekérését a 98. sortól látj
   <tbody>
   @foreach ($appointments as $appointment)
       <tr>
-<<<<<<< Updated upstream
           <td>{{ \App\Models\User::all()->find($appointment->doctor_id)->fullName }}</td>
-          <td>{{ $appointment->end_at}}</td>
-=======
-          <td>{{ \App\Models\Doctors::all()->find($appointment->doctor_id)->name }}</td>
           <td>{{ date("Y-m-d H:m",strtotime($appointment->end_at))}}</td>
->>>>>>> Stashed changes
       </tr>
   @endforeach
   </tbody>
