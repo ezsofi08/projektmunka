@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('layouts.admin')
 @section('content')
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href=
@@ -22,66 +21,48 @@
         href=
         "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"
         rel="stylesheet">
-
     <script src=
             "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js">
     </script>
     <style>
-
-        h1{
-            text-align:center
-        }
-
-        #dropdown{
-            width:200px;
-        }
-        #start{
-            width:200px;
-        }
-        #end{
-            width:200px;
-        }
         #con{
-            height: 600px;
+            align-items: center;
+            text-align:center;
+        }
+        #new{
+            border-right: 2px solid green;
         }
 
-        #gomb{
-            height:75px;
-            width:200px;
+        #but{
+            align-items: center;
+            text-align:center;
+            width:60%;
+
         }
-
-
     </style>
 
-<div class="container" style="background-color: white;" id="con">
-    <h1 class="mb-3">Időpontfoglalás</h1>
-    <!-- Include datetime input to display
-      datetimepicker in container with
-      relative position -->
-        <div style="position: relative">
-            <!-- Include input field with id so
-                that we can use it in JavaScript
-                to set attributes.-->
-            <form method="post" action="add_new_appointment" id="gomb">
-                <div  style="width:25%; position: absolute; margin-left: 38%; margin-top: 12px;">
-                 <label>Válasszon időpontot!</label>
-                 @csrf
-                 <input class="form-control" type="text" name="newAppointment" id="datetime">
-                <input type="submit" class="btn btn-primary" style="margin-top: 25px;" value="Hozzáadás">
-                </div>
-            </form>
+    <div class="container_2 justify-content-center d-flex list-inline text-center">
+        <div class="list-group" id="but">
+                <form method="post" action="add_new_appointment" id="gomb">
+                    <div  style="margin-top: 12px;">
+                        <label>Válasszon időpontot!</label>
+                        @csrf
+                        <input class="form-control" type="text" name="newAppointment" id="datetime">
+                        <input type="submit" class="list-group-item-info list-group-item list-group-item-action mt-1" style="margin-top: 25px;" value="Hozzáadás">
+                        <a   class="list-group-item-info list-group-item list-group-item-action mt-2" href="{{route('logout') }}"
+                             onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+                            Kijelentkezés<a/>
+                        </a>
+                    </div>
+                </form>
+
+            <script>
+                $('#datetime').datetimepicker({
+                    format: 'YY/MM/DD hh:mm:ss'
+                });
+            </script>
         </div>
-
-    <script>
-
-        // Below code sets format to the
-        // datetimepicker having id as
-        // datetime
-        $('#datetime').datetimepicker({
-            format: 'YY/MM/DD hh:mm:ss'
-        });
-    </script>
-</div>
-
+    </div>
 
 @endsection
