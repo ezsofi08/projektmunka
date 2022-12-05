@@ -3,20 +3,18 @@
 <style>
 
 #x{
-        margin-bottom:10px;
+        margin-bottom:20px;
 }
 #doc{
-        margin-bottom:10px;
-}
-#qu{
-        margin-bottom:10px; 
+        margin-bottom:20px;
 }
 
 
 </style>
 <div class="container p-10">
-<div class="row"> 
+<div class="row" >
 <div class="col-lg-6 col-md-8 mb-3 mb-md-0">
+    <p> IDŐPONT: {{date('Y-m-d', strtotime($appointment->end_at ?? "-"))}}</p>
     <p> IDŐPONT: {{date('H:i', strtotime($appointment->end_at ?? "-"))}}</p>
     <p>VEZETÉKNÉV: {{$patient->firstname ?? "-"}}</p>
     <p>KERESZTNÉV: {{$patient->secondname ?? "-"}}</p>
@@ -26,12 +24,6 @@
         @csrf
         <button class="btn btn-secondary" type="submit" id="doc" >Kórelőzmény</button>
 </form>
-
-<form action="getquestions" method="post">
-        @csrf
-        <button class="btn btn-secondary" type="submit" id="qu" >Kérdőív</button>
-</form>
-
     <form action="valami0" method="post">
         @csrf
         <button class="btn btn-secondary" type="submit" >Nem jelent meg</button>

@@ -50,7 +50,7 @@
                  <ul>
                         <li>
                             <h1>CÍM</h1>
-                            <p>8315 Gyenesdiás <br> Jókai utca 23</p>
+                            <p>8315 Gyenesdiás <br> Jókai utca 23/5</p>
                         </li>
                         <li>
                             <h1>NYITVATARTÁS</h1>

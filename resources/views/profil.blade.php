@@ -60,7 +60,7 @@ label{
   @foreach ($documents as $document)
     <tr>
 
-     <td>{{ $document -> date}}</td>
+     <td>{{ date("Y-m-d",strtotime( $document -> date))}}</td>
      <td>{{ $document -> treatment}}</td>
      <td>{{ $document -> doctor_first_name}} {{ $document -> doctor_second_name}}</td>
     </tr>
