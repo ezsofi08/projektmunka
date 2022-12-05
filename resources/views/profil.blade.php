@@ -15,15 +15,21 @@ label{
     height: 600px;
 }
 
-#l{
-  margin-bottom:90px;
+#oldal{
+  margin-bottom:60px;
+}
+
+#dow{
+  margin-bottom: 60px;
 }
 
 </style>
 
 
 <div class="container" style="background-color: white" id="con">
-    <h1 class="mb-4" id="l">Saját oldal</h1>
+<div id='oldal'>
+    <h1 class="mb-4">Saját oldal</h1>
+</div>
     <div class="container p-10">
     <!--Grid row-->
     <div class="row" >
@@ -67,7 +73,9 @@ label{
     @endforeach
   </tbody>
 </table>
-<a href="{{route('profil_pdf')}}">Részletes kórelőzmény letöltése</a>
+<div id="dow">
+<a href="{{route('profil_pdf')}}" >Részletes kórelőzmény letöltése</a>
+</div>
 {{-- Copy pasteltem a kórelőzményes táblázatot, ide beszúrtam egy próba-megjelenítést
 csak azért hogy lássam működik-e. Az adatok lekérését a 98. sortól látjátok --}}
 <h3 class="mb-3">Időpontok:</h3>
@@ -82,8 +90,13 @@ csak azért hogy lássam működik-e. Az adatok lekérését a 98. sortól látj
   <tbody>
   @foreach ($appointments as $appointment)
       <tr>
+<<<<<<< Updated upstream
           <td>{{ \App\Models\User::all()->find($appointment->doctor_id)->fullName }}</td>
           <td>{{ $appointment->end_at}}</td>
+=======
+          <td>{{ \App\Models\Doctors::all()->find($appointment->doctor_id)->name }}</td>
+          <td>{{ date("Y-m-d H:m",strtotime($appointment->end_at))}}</td>
+>>>>>>> Stashed changes
       </tr>
   @endforeach
   </tbody>

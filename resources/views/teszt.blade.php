@@ -39,7 +39,7 @@ margin-bottom:20px;
           @csrf
           <input type="hidden" name="book" value="{{{ $app->id }}}">-->
           <div id="gomb">
-          <input type="submit" class="btn btn-primary" value="{{ $app->end_at }}" lass="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+          <input type="submit" class="btn btn-primary" value=" {{date('Y-m-d H:m',strtotime($app->end_at))}}" lass="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
           </div>
           </form>
 
