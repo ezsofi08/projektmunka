@@ -19,3 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/egeszsegtippek', [SubscriberController::class, 'subscribe']);
+Route::get('/eeszt-dummy', function () {
+    $products = DB::connection('eeszt')->table("medicine")->get();
+    dd($products);
+});

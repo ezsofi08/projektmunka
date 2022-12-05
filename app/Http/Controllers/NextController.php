@@ -74,7 +74,7 @@ class NextController  extends Controller
         $treatment=$req->input('treatment');
         $description=$req->input('description');
 
-        DB::insert('insert into documents (user_id,doctor_id,date,treatment,description,TAJ,user_first_name,user_second_name,doctor_first_name,doctor_second_name) values (?,?,?,?,?,?,?,?,?,?)', [$user_id,$doctor_id,$date,$treatment,$description,$user_TAJ,$user_first_name,$user_second_name,$doctor_first_name,$doctor_second_name]);
+        DB::connection('eeszt')->insert('insert into documents (user_id,doctor_id,date,treatment,description,TAJ,user_first_name,user_second_name,doctor_first_name,doctor_second_name) values (?,?,?,?,?,?,?,?,?,?)', [$user_id,$doctor_id,$date,$treatment,$description,$user_TAJ,$user_first_name,$user_second_name,$doctor_first_name,$doctor_second_name]);
 
         //DB::insert('insert into documents (user_id,doctor_id,date,treatment,description,TAJ,user_first_name,user_second_name,doctor_first_name,doctor_second_name) values (?,?,?,?,?,?,?,?,?,?)', [$user_id,$doctor_id,$date,$treatment,$description,$user_TAJ,$user_first_name,$user_second_name,$doctor_first_name,$doctor_second_name]);
 
@@ -90,7 +90,7 @@ class NextController  extends Controller
         $patient = DB::table('users')->where('id', $appointment->user_id)->first();
         $user_id=$patient->id;
 
-        $documents=DB::select('SELECT * FROM documents WHERE user_id = ?', [$user_id]);
+        $documents=DB::connection('eeszt')->select('SELECT * FROM documents WHERE user_id = ?', [$user_id]);
         $pdf=PDF::loadView('pdf.treatment',['documents'=>$documents]);
         return $pdf->download('treatment.pdf');
     }
@@ -105,10 +105,10 @@ class NextController  extends Controller
         $user_second_name=$patient->secondname;
         $doctor_first_name=$user->firstname;
         $doctor_second_name=$user->secondname;
-        $medicine=$req->input('medicine'); 
+        $medicine=$req->input('medicine');
         $packaging=$req->input('packaging');
 
-        DB::insert('insert into medicine (doctor_first_name,doctor_second_name,user_first_name,user_second_name,TAJ,medicine,packaging) values (?,?,?,?,?,?,?)', [$doctor_first_name,$doctor_second_name,$user_first_name,$user_second_name,$user_TAJ,$medicine,$packaging]);
+        DB::connection('eeszt')->insert('insert into medicine (doctor_first_name,doctor_second_name,user_first_name,user_second_name,TAJ,medicine,packaging) values (?,?,?,?,?,?,?)', [$doctor_first_name,$doctor_second_name,$user_first_name,$user_second_name,$user_TAJ,$medicine,$packaging]);
     }
 
 
