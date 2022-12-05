@@ -29,6 +29,7 @@
      padding-right: 100px;
      margin-right: 20px;
      background-color:rgb(238, 240, 240) ;
+     height: 250px;
 }
 .box ul li h1{
     padding-bottom: 10px;

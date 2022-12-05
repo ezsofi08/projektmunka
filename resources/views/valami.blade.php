@@ -14,6 +14,7 @@
 <div class="container p-10">
 <div class="row" >
 <div class="col-lg-6 col-md-8 mb-3 mb-md-0">
+    <p> IDŐPONT: {{date('Y-m-d', strtotime($appointment->end_at ?? "-"))}}</p>
     <p> IDŐPONT: {{date('H:i', strtotime($appointment->end_at ?? "-"))}}</p>
     <p>VEZETÉKNÉV: {{$patient->firstname ?? "-"}}</p>
     <p>KERESZTNÉV: {{$patient->secondname ?? "-"}}</p>

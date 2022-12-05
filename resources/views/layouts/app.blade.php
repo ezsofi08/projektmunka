@@ -80,7 +80,6 @@ body {
     text-align: left;
   }
 
-  <style>
             *{
     padding: 0;
      margin:0;
