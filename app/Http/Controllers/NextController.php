@@ -20,7 +20,7 @@ class NextController  extends Controller
         //$doctor=DB::select('SELECT  * FROM doctors WHERE user_id = ?', [$user['id']] );
        // $doc=$doctor['id'];
        // $appointment=DB::select('SELECT * FROM appointments WHERE doctor_id = ?', [$user['id']]);
-       $appointment = DB::table('appointments')->where('doctor_id', $user->id)->orderBy('end_at','ASC')->first();
+       $appointment = DB::table('appointments')->where('doctor_id', $user->id)->where('user_id','<>',null)->orderBy('end_at','ASC')->first();
        if ($appointment == null)
            return view('admin/adminhome');
        $patient = DB::table('users')->where('id', $appointment->user_id)->first();
@@ -58,7 +58,7 @@ class NextController  extends Controller
 
     public function savedoc(Request $req){
         $user=Auth::user();
-        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->orderBy('end_at','ASC')->first();
+        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->where('user_id','<>',null)->orderBy('end_at','ASC')->first();
         $patient = DB::table('users')->where('id', $appointment->user_id)->first();
         $user_id=$patient->id;
         $user_TAJ=$patient->TAJ;
@@ -86,7 +86,7 @@ class NextController  extends Controller
     public function getdoc(){
 
         $user=Auth::user();
-        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->orderBy('end_at','ASC')->first();
+        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->where('user_id','<>',null)->orderBy('end_at','ASC')->first();
         $patient = DB::table('users')->where('id', $appointment->user_id)->first();
         $user_id=$patient->id;
 
@@ -99,7 +99,7 @@ class NextController  extends Controller
     public function getquestions(){
 
         $user=Auth::user();
-        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->first();
+        $appointment = DB::table('appointments')->where('doctor_id', $user->id)->where('user_id','<>',null)->first();
         $patient = DB::table('users')->where('id', $appointment->user_id)->first();
         $user_id=$patient->id;
 

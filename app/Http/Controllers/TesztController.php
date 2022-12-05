@@ -19,7 +19,7 @@ class TesztController  extends Controller
 
    public function getapp($doc){
    $appointments=DB::table('appointments')
-	    ->where('user_id','=', 0)
+	    ->where('user_id','=', null)
         ->where('doctor_id','=',$doc)
 	    ->get();
    return $appointments;
@@ -42,7 +42,7 @@ class TesztController  extends Controller
       $app=$req->input('question');
       $appointment=DB::table('appointments')->where('id', $app);
       $end_at_date=DB::table('appointments')->where('id', $app)->value('end_at');
-      $actual_date=date("Y-m-d h:i:sa");
+     /* $actual_date=date("Y-m-d h:i:sa");
       $secs=$actual_date-$date;
       $days = $secs / 86400;
       
@@ -56,8 +56,8 @@ class TesztController  extends Controller
 
       if($not_appear == 2){
          alert()->message('Sajnos nem tudsz időpontot foglalni, mert kitiltásra kerültél a rendszerből!');
-      }
-      else{
+      }*/
+    
          $reason=$req->input('reason');
          $complain=$req->input('complain');
          $time=$req->input('time'); 
@@ -69,7 +69,7 @@ class TesztController  extends Controller
             
          DB::table('appointments')->where('id', $app)
                    ->update(['user_id' => $user->id]);
-      }
+      
 
       
 
