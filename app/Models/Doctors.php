@@ -14,9 +14,11 @@ class Doctors extends Model
         "password",
         "email",
     ];
-
+/*
     public function appointments()
     {
         return $this->hasMany(Appointment::class,'doctor_id','id');
     }
+*/
+
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,7 +38,7 @@ class DoctorsController extends Controller
         }
         else{
 
-        $doctors=Doctors::all();
+        $doctors=User::all()->where('role','=',1);
         return view('appointment',compact('doctors'));
         }
     }
@@ -47,7 +48,10 @@ class DoctorsController extends Controller
     {
         $user = Auth::user(); //ez az admin
         $date = $request->input('newAppointment');
-        $doctor = Doctors::all()->where('id', $user->id)->firstOrFail();
+        $doctor = User::all()
+            ->where('id', $user->id)
+            ->where('role','=',1)
+            ->firstOrFail();
         /*
         $isDateExist = Appointment::all()
             ->where('end_at', '=', $date)

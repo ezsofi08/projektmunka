@@ -82,7 +82,7 @@ csak azért hogy lássam működik-e. Az adatok lekérését a 98. sortól látj
   <tbody>
   @foreach ($appointments as $appointment)
       <tr>
-          <td>{{ \App\Models\Doctors::all()->find($appointment->doctor_id)->name }}</td>
+          <td>{{ \App\Models\User::all()->find($appointment->doctor_id)->fullName }}</td>
           <td>{{ $appointment->end_at}}</td>
       </tr>
   @endforeach

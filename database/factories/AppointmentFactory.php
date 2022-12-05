@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Doctors;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use PhpParser\Comment\Doc;
 
@@ -19,8 +20,8 @@ class AppointmentFactory extends Factory
     public function definition()
     {
         return [
-            'doctor_id' => Doctors::all()->random(1)->first()->id,
-            'user_id' => Doctors::all()->random(1)->first()->id,
+            'doctor_id' => User::all()->random(1)->first()->id,
+            'user_id' => User::all()->random(1)->first()->id,
             'end_at' => fake()->dateTimeBetween('2022-11-29','2022-12-31')
         ];
     }

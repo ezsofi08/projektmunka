@@ -20,7 +20,7 @@ class Appointment extends Model
     }
 
     protected function doctors() {
-        return $this->belongsToMany(Doctors::class,'appointments','id','doctor_id');
+        return $this->belongsToMany(User::class,'appointments','id','doctor_id');
     }
 
     protected function userId(): Attribute

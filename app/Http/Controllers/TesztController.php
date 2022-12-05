@@ -45,7 +45,7 @@ class TesztController  extends Controller
      /* $actual_date=date("Y-m-d h:i:sa");
       $secs=$actual_date-$date;
       $days = $secs / 86400;
-      
+
 
       if($days > 182){
          DB::table('presence')->where('id', $appointment->user_id)
@@ -57,26 +57,27 @@ class TesztController  extends Controller
       if($not_appear == 2){
          alert()->message('Sajnos nem tudsz időpontot foglalni, mert kitiltásra kerültél a rendszerből!');
       }*/
-    
+
          $reason=$req->input('reason');
          $complain=$req->input('complain');
-         $time=$req->input('time'); 
+         $time=$req->input('time');
          $braces=$req->input('braces');
-         $medicine=$req->input('medicine');      
-   
-   
-         DB::insert('insert into questions (reason,complain,time,braces,medicine,appointment_id) values (?,?,?,?,?,?)', [$reason,$complain,$time,$braces,$medicine,$app]);
-            
+         $medicine=$req->input('medicine');
+
+
+         DB::insert('insert into questions (reason,complain,time,braces,medicine,appointment_id) values (?,?,?,?,?,?)',
+             [$reason,$complain,$time,$braces,$medicine,$app]);
+
          DB::table('appointments')->where('id', $app)
                    ->update(['user_id' => $user->id]);
-      
 
-      
 
-      
+
+
+
 
       return view('home');
-      
+
 
    }
 

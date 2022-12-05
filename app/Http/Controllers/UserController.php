@@ -29,7 +29,6 @@ class UserController extends Controller
      */
     public function index()
     {
-
         $user=Auth::user();
         $documents=DB::select('SELECT * FROM documents WHERE user_id = ?', [$user['id']]);
         $appointments = User::all()->find($user['id'])->appointments;

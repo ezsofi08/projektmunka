@@ -13,7 +13,7 @@
     margin:0;
     box-sizing: border-box;
     text-decoration: none;
- 
+
 }
 
 body {
@@ -27,7 +27,7 @@ body {
   font-weight: 600;
   font-size: large;
   text-decoration: none;
-  
+
  }
 
 .topnav a {
@@ -38,7 +38,7 @@ body {
   color: black;
 
 }
- 
+
 .topnav a:hover {
   color: blue;
 }
@@ -86,9 +86,9 @@ body {
      box-sizing: border-box;
      font-family: 'Trebuchet MS';
      text-decoration: none;
- 
+
  }
- 
+
 }
 </style>
 </head>
@@ -97,13 +97,13 @@ body {
     <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="topnav" id="myTopnav" style="background-color: white">
     @if (Route::has('login'))
-              <a href="home" class="active">Kezdőlap</a>
-              <a href="contact">Kapcsolatok</a>
+              <a href={{'../home'}} class="active">Kezdőlap</a>
+              <a href={{'../contact'}}>Kapcsolatok</a>
                  @auth
-                 <a href="profil">Saját oldal</a>
+                 <a href={{'../profil'}}>Saját oldal</a>
                  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                  <i class="fa fa-bars"></i>
-                 </a> 
+                 </a>
                  <a class="nav-link" href="{{route('logout') }}"
                       onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();">
@@ -122,11 +122,11 @@ body {
                     @endauth
   @endif
 
-                 
+
 </div>
 </div>
 
-   
+
 
 
 <script>
@@ -134,7 +134,7 @@ body {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
         x.className += " responsive";
-    } 
+    }
 
     else {
         x.className = "topnav";
@@ -142,7 +142,7 @@ body {
 
     }
 </script>
-              
+
 
         <main class="py-4">
             @yield('content')

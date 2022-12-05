@@ -47,7 +47,7 @@ h1{
   @foreach ($doctors as $doctor)
             <div class="card p-1 m-1" style="width: 18rem;">
                 <div class="card-body">
-                    <p class="card-text">{{$doctor["name"]}}</p>
+                    <p class="card-text">{{$doctor->fullName}}</p>
                     {{-- itt át kell irányítani az orvos időpontjaihoz,egyelőre nem jó --}}
                     <form method="post" action="doc">
                         @csrf
